@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Planificateur de notifications</string>
+    
+    <!-- Main Screen -->
+    <string name="title_notification_scheduler">Planificateur de notifications</string>
+    <string name="no_notifications">Aucune notification planifiée</string>
+    <string name="add_notification">Ajouter une notification</string>
+    <string name="edit_notification">Modifier la notification</string>
+    <string name="delete_notification">Supprimer la notification</string>
+    
+    <!-- Form Labels -->
+    <string name="label_title">Titre</string>
+    <string name="label_description">Description</string>
+    <string name="label_select_date">Sélectionner la date</string>
+    <string name="label_select_time">Sélectionner l\'heure</string>
+    <string name="label_add_image">Ajouter une image</string>
+    <string name="button_schedule">Planifier la notification</string>
+    
+    <!-- Error Messages -->
+    <string name="error_past_time">Impossible de planifier des notifications dans le passé</string>
+    <string name="error_empty_fields">Le titre et la description ne peuvent pas être vides</string>
+    
+    <!-- Content Descriptions -->
+    <string name="cd_edit_notification">Modifier la notification</string>
+    <string name="cd_delete_notification">Supprimer la notification</string>
+    <string name="cd_notification_image">Image de notification</string>
+    <string name="cd_select_date">Sélectionner la date</string>
+    <string name="cd_select_time">Sélectionner l\'heure</string>
+    <string name="cd_add_image">Ajouter une image</string>
+</resources> 

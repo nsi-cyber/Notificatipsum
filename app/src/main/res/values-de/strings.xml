@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Benachrichtigungsplaner</string>
+    
+    <!-- Main Screen -->
+    <string name="title_notification_scheduler">Benachrichtigungsplaner</string>
+    <string name="no_notifications">Keine Benachrichtigungen geplant</string>
+    <string name="add_notification">Benachrichtigung hinzufügen</string>
+    <string name="edit_notification">Benachrichtigung bearbeiten</string>
+    <string name="delete_notification">Benachrichtigung löschen</string>
+    
+    <!-- Form Labels -->
+    <string name="label_title">Titel</string>
+    <string name="label_description">Beschreibung</string>
+    <string name="label_select_date">Datum auswählen</string>
+    <string name="label_select_time">Zeit auswählen</string>
+    <string name="label_add_image">Bild hinzufügen</string>
+    <string name="button_schedule">Benachrichtigung planen</string>
+    
+    <!-- Error Messages -->
+    <string name="error_past_time">Benachrichtigungen können nicht in der Vergangenheit geplant werden</string>
+    <string name="error_empty_fields">Titel und Beschreibung dürfen nicht leer sein</string>
+    
+    <!-- Content Descriptions -->
+    <string name="cd_edit_notification">Benachrichtigung bearbeiten</string>
+    <string name="cd_delete_notification">Benachrichtigung löschen</string>
+    <string name="cd_notification_image">Benachrichtigungsbild</string>
+    <string name="cd_select_date">Datum auswählen</string>
+    <string name="cd_select_time">Zeit auswählen</string>
+    <string name="cd_add_image">Bild hinzufügen</string>
+</resources> 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Notification Scheduler</string>
+    
+    <!-- Main Screen -->
+    <string name="title_notification_scheduler">Notification Scheduler</string>
+    <string name="no_notifications">No notifications scheduled</string>
+    <string name="add_notification">Add Notification</string>
+    <string name="edit_notification">Edit Notification</string>
+    <string name="delete_notification">Delete Notification</string>
+    
+    <!-- Form Labels -->
+    <string name="label_title">Title</string>
+    <string name="label_description">Description</string>
+    <string name="label_select_date">Select date</string>
+    <string name="label_select_time">Select time</string>
+    <string name="label_add_image">Add Image</string>
+    <string name="button_schedule">Schedule Notification</string>
+    
+    <!-- Error Messages -->
+    <string name="error_past_time">Cannot schedule notifications in the past</string>
+    <string name="error_empty_fields">Title and description cannot be empty</string>
+    
+    <!-- Content Descriptions -->
+    <string name="cd_edit_notification">Edit notification</string>
+    <string name="cd_delete_notification">Delete notification</string>
+    <string name="cd_notification_image">Notification image</string>
+    <string name="cd_select_date">Select date</string>
+    <string name="cd_select_time">Select time</string>
+    <string name="cd_add_image">Add image</string>
+</resources>

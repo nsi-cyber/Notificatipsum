@@ -6,7 +6,9 @@ import android.app.NotificationManager
 import android.os.Build
 import androidx.work.Configuration
 import androidx.work.WorkManager
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class NotificationApp(override val workManagerConfiguration: Configuration= Configuration.Builder()
     .setMinimumLoggingLevel(android.util.Log.INFO)
     .build()) : Application(), Configuration.Provider {

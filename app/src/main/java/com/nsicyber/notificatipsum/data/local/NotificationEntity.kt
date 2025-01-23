@@ -1,4 +1,4 @@
-package com.nsicyber.notificatipsum.data
+package com.nsicyber.notificatipsum.data.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

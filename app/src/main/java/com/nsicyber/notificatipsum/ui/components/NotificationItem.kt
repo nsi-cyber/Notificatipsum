@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.nsicyber.notificatipsum.R
-import com.nsicyber.notificatipsum.data.NotificationEntity
+import com.nsicyber.notificatipsum.domain.model.Notification
 import com.nsicyber.notificatipsum.ui.theme.LightYellow
 import com.nsicyber.notificatipsum.ui.theme.VeryLightYellow
 import java.time.format.DateTimeFormatter
@@ -27,7 +27,7 @@ import java.time.format.DateTimeFormatter
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NotificationItem(
-    notification: NotificationEntity,
+    notification: Notification,
     onEdit: () -> Unit,
     onDelete: () -> Unit,
     modifier: Modifier = Modifier

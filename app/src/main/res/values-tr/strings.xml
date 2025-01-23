@@ -16,10 +16,16 @@
     <string name="label_select_time">Saat seç</string>
     <string name="label_add_image">Resim Ekle</string>
     <string name="button_schedule">Bildirimi Planla</string>
+    <string name="save">Kaydet</string>
+    <string name="select_date_time">Tarih ve Saat Seç</string>
+    <string name="change_image">Resmi Değiştir</string>
+    <string name="add_image">Resim Ekle</string>
     
     <!-- Error Messages -->
-    <string name="error_past_time">Geçmiş zamana bildirim planlanamaz</string>
+    <string name="error_past_time">Geçmiş bir zamana bildirim planlayamazsınız</string>
     <string name="error_empty_fields">Başlık ve açıklama boş olamaz</string>
+    <string name="error_custom_days">Özel tekrar için günleri seçmelisiniz</string>
+    <string name="error_repeat_until">Bitiş tarihi başlangıç tarihinden sonra olmalıdır</string>
     
     <!-- Content Descriptions -->
     <string name="cd_edit_notification">Bildirimi düzenle</string>
@@ -28,4 +34,42 @@
     <string name="cd_select_date">Tarih seç</string>
     <string name="cd_select_time">Saat seç</string>
     <string name="cd_add_image">Resim ekle</string>
+
+    <!-- Repeat Options -->
+    <string name="repeat_options">Tekrarlama Seçenekleri</string>
+    <string name="repeat_none">Tekrarlama</string>
+    <string name="repeat_daily">Her gün tekrarla</string>
+    <string name="repeat_weekly">Her hafta tekrarla</string>
+    <string name="repeat_monthly">Her ay tekrarla</string>
+    <string name="repeat_yearly">Her yıl tekrarla</string>
+    <string name="repeat_custom">Özel günler</string>
+    <string name="repeat_until">Tekrarlama Bitiş Tarihi</string>
+    <string name="select_days">Günleri Seç</string>
+    <string name="no_end_date">Bitiş tarihi yok</string>
+    <string name="select_end_date">Bitiş tarihi seç</string>
+
+    <!-- Week Days -->
+    <string name="monday">Pazartesi</string>
+    <string name="tuesday">Salı</string>
+    <string name="wednesday">Çarşamba</string>
+    <string name="thursday">Perşembe</string>
+    <string name="friday">Cuma</string>
+    <string name="saturday">Cumartesi</string>
+    <string name="sunday">Pazar</string>
+
+    <!-- Success Messages -->
+    <string name="success_schedule">Bildirim başarıyla planlandı</string>
+    <string name="success_update">Bildirim başarıyla güncellendi</string>
+    <string name="success_delete">Bildirim başarıyla silindi</string>
+
+    <!-- Error Messages -->
+    <string name="error_schedule">Bildirim planlanırken hata oluştu</string>
+    <string name="error_update">Bildirim güncellenirken hata oluştu</string>
+    <string name="error_delete">Bildirim silinirken hata oluştu</string>
+    <string name="error_cleanup">Eski bildirimler temizlenirken hata oluştu</string>
+    <string name="error_load">Bildirimler yüklenirken hata oluştu</string>
+
+    <!-- Dialog Buttons -->
+    <string name="button_ok">Tamam</string>
+    <string name="button_cancel">İptal</string>
 </resources> 

@@ -10,7 +10,11 @@ fun NotificationEntity.toNotification(): Notification {
         description = description,
         dateTime = dateTime,
         imageUri = imageUri,
-        isActive = isActive
+        isActive = isActive,
+        repeatInterval = repeatInterval,
+        repeatDays = repeatDays,
+        repeatUntil = repeatUntil,
+        parentNotificationId = parentNotificationId
     )
 }
 
@@ -21,6 +25,10 @@ fun Notification.toEntity(): NotificationEntity {
         description = description,
         dateTime = dateTime,
         imageUri = imageUri,
-        isActive = isActive
+        isActive = isActive,
+        repeatInterval = repeatInterval,
+        repeatDays = repeatDays,
+        repeatUntil = repeatUntil,
+        parentNotificationId = parentNotificationId
     )
 } 

@@ -16,10 +16,16 @@
     <string name="label_select_time">Select time</string>
     <string name="label_add_image">Add Image</string>
     <string name="button_schedule">Schedule Notification</string>
+    <string name="save">Save</string>
+    <string name="select_date_time">Select Date &amp; Time</string>
+    <string name="change_image">Change Image</string>
+    <string name="add_image">Add Image</string>
     
     <!-- Error Messages -->
     <string name="error_past_time">Cannot schedule notifications in the past</string>
     <string name="error_empty_fields">Title and description cannot be empty</string>
+    <string name="error_custom_days">Must specify days for custom repeat interval</string>
+    <string name="error_repeat_until">Repeat until date must be after initial date</string>
     
     <!-- Content Descriptions -->
     <string name="cd_edit_notification">Edit notification</string>
@@ -28,4 +34,41 @@
     <string name="cd_select_date">Select date</string>
     <string name="cd_select_time">Select time</string>
     <string name="cd_add_image">Add image</string>
+
+    <!-- Repeat Options -->
+    <string name="repeat_options">Repeat Options</string>
+    <string name="repeat_none">Do not repeat</string>
+    <string name="repeat_daily">Repeat daily</string>
+    <string name="repeat_weekly">Repeat weekly</string>
+    <string name="repeat_monthly">Repeat monthly</string>
+    <string name="repeat_yearly">Repeat yearly</string>
+    <string name="repeat_custom">Custom days</string>
+    <string name="repeat_until">Repeat Until</string>
+    <string name="select_days">Select Days</string>
+    <string name="no_end_date">No end date</string>
+    <string name="select_end_date">Select end date</string>
+
+    <!-- Week Days -->
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+
+    <!-- Success Messages -->
+    <string name="success_schedule">Notification scheduled successfully</string>
+    <string name="success_update">Notification updated successfully</string>
+    <string name="success_delete">Notification deleted successfully</string>
+
+    <!-- Error Messages -->
+    <string name="error_schedule">Failed to schedule notification</string>
+    <string name="error_update">Failed to update notification</string>
+    <string name="error_delete">Failed to delete notification</string>
+    <string name="error_cleanup">Failed to cleanup notifications</string>
+    <string name="error_load">Failed to load notifications</string>
+
+    <string name="button_ok">Ok</string>
+    <string name="button_cancel">Cancel</string>
 </resources>

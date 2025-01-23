@@ -51,7 +51,6 @@ fun MainScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val snackbarHostState = remember { SnackbarHostState() }
-    val scope = rememberCoroutineScope()
 
     // Collect UI events
     LaunchedEffect(key1 = true) {
@@ -63,7 +62,6 @@ fun MainScreen(
                         duration = SnackbarDuration.Short
                     )
                 }
-
                 is com.nsicyber.notificatipsum.presentation.UiEvent.ShowSuccess -> {
                     snackbarHostState.showSnackbar(
                         message = event.message,
@@ -128,13 +126,7 @@ fun MainScreen(
                     ) { notification ->
                         NotificationItem(
                             notification = notification,
-                            onEdit = {
-                                viewModel.onEvent(
-                                    NotificationEvent.ShowEditDialog(
-                                        notification
-                                    )
-                                )
-                            },
+                            onEdit = { viewModel.onEvent(NotificationEvent.ShowEditDialog(notification)) },
                             onDelete = { viewModel.onEvent(NotificationEvent.Delete(notification)) }
                         )
                     }
@@ -149,13 +141,16 @@ fun MainScreen(
             title = { Text(stringResource(R.string.add_notification)) },
             text = {
                 NotificationForm(
-                    onSubmit = { title, description, dateTime, imageUri ->
+                    onSubmit = { title, description, dateTime, imageUri, repeatInterval, repeatDays, repeatUntil ->
                         viewModel.onEvent(
                             NotificationEvent.Schedule(
                                 title = title,
                                 description = description,
                                 dateTime = dateTime,
-                                imageUri = imageUri
+                                imageUri = imageUri,
+                                repeatInterval = repeatInterval,
+                                repeatDays = repeatDays,
+                                repeatUntil = repeatUntil
                             )
                         )
                     }
@@ -176,14 +171,20 @@ fun MainScreen(
                     initialDescription = notification.description,
                     initialDateTime = notification.dateTime,
                     initialImageUri = notification.imageUri,
-                    onSubmit = { title, description, dateTime, imageUri ->
+                    initialRepeatInterval = notification.repeatInterval,
+                    initialRepeatDays = notification.repeatDays,
+                    initialRepeatUntil = notification.repeatUntil,
+                    onSubmit = { title, description, dateTime, imageUri, repeatInterval, repeatDays, repeatUntil ->
                         viewModel.onEvent(
                             NotificationEvent.Update(
                                 id = notification.id,
                                 title = title,
                                 description = description,
                                 dateTime = dateTime,
-                                imageUri = imageUri
+                                imageUri = imageUri,
+                                repeatInterval = repeatInterval,
+                                repeatDays = repeatDays,
+                                repeatUntil = repeatUntil
                             )
                         )
                     }

@@ -3,6 +3,8 @@ package com.nsicyber.notificatipsum.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nsicyber.notificatipsum.domain.model.Notification
+import com.nsicyber.notificatipsum.domain.model.RepeatInterval
+import com.nsicyber.notificatipsum.domain.model.WeekDay
 import com.nsicyber.notificatipsum.domain.usecase.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
@@ -64,14 +66,20 @@ class NotificationViewModel @Inject constructor(
                 event.title,
                 event.description,
                 event.dateTime,
-                event.imageUri
+                event.imageUri,
+                event.repeatInterval,
+                event.repeatDays,
+                event.repeatUntil
             )
             is NotificationEvent.Update -> updateNotification(
                 event.id,
                 event.title,
                 event.description,
                 event.dateTime,
-                event.imageUri
+                event.imageUri,
+                event.repeatInterval,
+                event.repeatDays,
+                event.repeatUntil
             )
             is NotificationEvent.Delete -> deleteNotification(event.notification)
             is NotificationEvent.DismissDialog -> dismissDialog()
@@ -84,17 +92,26 @@ class NotificationViewModel @Inject constructor(
         title: String,
         description: String,
         dateTime: LocalDateTime,
-        imageUri: String? = null
+        imageUri: String? = null,
+        repeatInterval: RepeatInterval = RepeatInterval.NONE,
+        repeatDays: Set<WeekDay> = emptySet(),
+        repeatUntil: LocalDateTime? = null
     ) {
         viewModelScope.launch {
-            scheduleNotificationUseCase(title, description, dateTime, imageUri)
-                .onSuccess { 
-                    emitEvent(UiEvent.ShowSuccess("Notification scheduled successfully"))
-                    dismissDialog()
-                }
-                .onFailure { error ->
-                    emitEvent(UiEvent.ShowError(error.message ?: "Failed to schedule notification"))
-                }
+            scheduleNotificationUseCase(
+                title = title,
+                description = description,
+                dateTime = dateTime,
+                imageUri = imageUri,
+                repeatInterval = repeatInterval,
+                repeatDays = repeatDays,
+                repeatUntil = repeatUntil
+            ).onSuccess { 
+                emitEvent(UiEvent.ShowSuccess("Notification scheduled successfully"))
+                dismissDialog()
+            }.onFailure { error ->
+                emitEvent(UiEvent.ShowError(error.message ?: "Failed to schedule notification"))
+            }
         }
     }
 
@@ -103,17 +120,27 @@ class NotificationViewModel @Inject constructor(
         title: String,
         description: String,
         dateTime: LocalDateTime,
-        imageUri: String?
+        imageUri: String?,
+        repeatInterval: RepeatInterval = RepeatInterval.NONE,
+        repeatDays: Set<WeekDay> = emptySet(),
+        repeatUntil: LocalDateTime? = null
     ) {
         viewModelScope.launch {
-            updateNotificationUseCase(id, title, description, dateTime, imageUri)
-                .onSuccess { 
-                    emitEvent(UiEvent.ShowSuccess("Notification updated successfully"))
-                    dismissDialog()
-                }
-                .onFailure { error ->
-                    emitEvent(UiEvent.ShowError(error.message ?: "Failed to update notification"))
-                }
+            updateNotificationUseCase(
+                id = id,
+                title = title,
+                description = description,
+                dateTime = dateTime,
+                imageUri = imageUri,
+                repeatInterval = repeatInterval,
+                repeatDays = repeatDays,
+                repeatUntil = repeatUntil
+            ).onSuccess { 
+                emitEvent(UiEvent.ShowSuccess("Notification updated successfully"))
+                dismissDialog()
+            }.onFailure { error ->
+                emitEvent(UiEvent.ShowError(error.message ?: "Failed to update notification"))
+            }
         }
     }
 
@@ -141,7 +168,15 @@ class NotificationViewModel @Inject constructor(
     }
 
     private fun showEditDialog(notification: Notification) {
-        _uiState.update { it.copy(editingNotification = notification) }
+        _uiState.update { currentState ->
+            currentState.copy(
+                editingNotification = notification.copy(
+                    repeatInterval = notification.repeatInterval,
+                    repeatDays = notification.repeatDays,
+                    repeatUntil = notification.repeatUntil
+                )
+            )
+        }
     }
 
     private fun emitEvent(event: UiEvent) {
@@ -163,7 +198,10 @@ sealed class NotificationEvent {
         val title: String,
         val description: String,
         val dateTime: LocalDateTime,
-        val imageUri: String?
+        val imageUri: String?,
+        val repeatInterval: RepeatInterval = RepeatInterval.NONE,
+        val repeatDays: Set<WeekDay> = emptySet(),
+        val repeatUntil: LocalDateTime? = null
     ) : NotificationEvent()
 
     data class Update(
@@ -171,7 +209,10 @@ sealed class NotificationEvent {
         val title: String,
         val description: String,
         val dateTime: LocalDateTime,
-        val imageUri: String?
+        val imageUri: String?,
+        val repeatInterval: RepeatInterval = RepeatInterval.NONE,
+        val repeatDays: Set<WeekDay> = emptySet(),
+        val repeatUntil: LocalDateTime? = null
     ) : NotificationEvent()
 
     data class Delete(val notification: Notification) : NotificationEvent()

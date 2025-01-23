@@ -93,6 +93,9 @@ dependencies {
 
     // Result
     implementation("com.github.skydoves:sandwich:1.3.7")
+
+    // Gson
+    implementation("com.google.code.gson:gson:2.10.1")
     
     // Testing dependencies
     testImplementation(libs.junit)

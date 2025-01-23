@@ -8,5 +8,9 @@ data class Notification(
     val description: String,
     val dateTime: LocalDateTime,
     val imageUri: String?,
-    val isActive: Boolean = true
+    val isActive: Boolean = true,
+    val repeatInterval: RepeatInterval = RepeatInterval.NONE,
+    val repeatDays: Set<WeekDay> = emptySet(),    // Haftanın hangi günleri tekrarlanacak
+    val repeatUntil: LocalDateTime? = null,        // Ne zamana kadar tekrarlanacak
+    val parentNotificationId: Long? = null         // Tekrarlanan bildirimin ana bildirimi
 ) 
